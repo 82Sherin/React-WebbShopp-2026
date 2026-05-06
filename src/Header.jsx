@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom";
 
 function Header(){
 
@@ -7,10 +7,18 @@ function Header(){
             <h1>Taste Of Greek</h1>
             <nav>
                 <ul>
-                    <li>Home</li>
-                    <li>Menu</li>
-                    <li>Take Away</li>
-                    <li>Contact</li>
+                    <li>
+                        <Link to="/">Home</Link>
+                    </li>
+                    <li>
+                        <Link to="/menu">Menu</Link>
+                    </li>
+                    <li>
+                        <Link to="/take-away">Take Away</Link>
+                    </li>
+                    <li>
+                        <Link to="/contact">Contact</Link>
+                    </li>
                 </ul>
             </nav>
             <hr />
