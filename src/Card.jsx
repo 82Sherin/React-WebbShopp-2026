@@ -1,5 +1,5 @@
 import tzatziki from "./assets/tzatziki.jpg"
-
+import "./Card.css";
 
 function Card(){
 

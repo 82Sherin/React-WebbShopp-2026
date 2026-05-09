@@ -1,0 +1,80 @@
+/* ---- MOBILE FIRST ---- */
+
+header {
+    background-color: hsl(0, 0%, 98%);
+    padding: 15px;
+    border-bottom: 1px solid hsl(0, 0%, 80%);
+    box-shadow: 0px 2px 5px hsla(0, 0%, 0%, 0.1);
+    display: flex;
+    flex-direction: column;  /* stacked on mobile */
+    align-items: center;
+    gap: 15px;
+}
+
+header img {
+    max-width: 60px;
+    height: auto;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;        /* wraps links on small screens */
+    justify-content: center;
+    gap: 10px;
+}
+
+header nav ul li a {
+    font-family: Arial, sans-serif;
+    text-decoration: none;
+    color: hsl(241, 73%, 32%);
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+
+header nav ul li a:hover {
+    color: hsl(0, 0%, 20%);
+}
+
+/* ---- TABLET ---- */
+
+@media (min-width: 768px) {
+    header {
+        flex-direction: row;    /* logo left, nav right */
+        justify-content: flex-start;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    header img {
+        max-width: 80px;
+    }
+
+    header nav ul {
+        justify-content: flex-start;
+        gap: 20px;
+    }
+
+    header nav ul li a {
+        font-size: 1rem;
+    }
+}
+
+/* ---- DESKTOP ---- */
+
+@media (min-width: 1024px) {
+    header {
+        padding: 20px 40px;
+    }
+
+    header img {
+        max-width: 100px;
+    }
+
+    header nav ul {
+        gap: 30px;
+    }
+}
