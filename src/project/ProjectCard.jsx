@@ -1,7 +1,8 @@
 
 import "./ProjectCard.css";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import SearchBar from "./SearchBar";
 
 const fetchProducts = async () => {
   try {
@@ -12,18 +13,16 @@ const fetchProducts = async () => {
       },
     });
     if (!response.ok) {
-      throw new Error("kunde inte hämta datan");
+      throw new Error("not found!");
     }
     const products = await response.json();
     return products;
   } catch (error) {
-    console.error("något gick snett:", error);
+    console.error("something went wrong:", error);
   }
 };
 
-function ProjectCard() {
-  const [products, setProducts] = useState([]);
-
+function ProjectCard({products, setProducts}) {
   useEffect(() => {
     fetchProducts().then((data) => {
       if (data) {
@@ -34,15 +33,23 @@ function ProjectCard() {
   }, []);
 
   return (
+   
     <>
-      {products.map((product) => (
+      {
+            products.length > 0 ?
+            products.map((product) => (
         <Link to={`/project/${product.id}`} key={product.id}>
           <div className="project-card">
             <img className="project-card-image" src={product.thumbnail} alt={product.title} />
             <h2 className="project-card-title">{product.title}</h2>
           </div>
         </Link>
-      ))}
+      ))
+      :
+      <p>No product found</p>
+    
+    }
+ 
     </>
   );
 }
