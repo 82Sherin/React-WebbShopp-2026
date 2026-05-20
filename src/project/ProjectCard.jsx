@@ -1,6 +1,7 @@
 
 import "./ProjectCard.css";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const fetchProducts = async () => {
   try {
@@ -26,7 +27,8 @@ function ProjectCard() {
   useEffect(() => {
     fetchProducts().then((data) => {
       if (data) {
-        setProducts(data.products); // DummyJSON wraps items in a "products" array
+        console.log(data.products);
+        setProducts(data.products);
       }
     });
   }, []);
@@ -34,17 +36,15 @@ function ProjectCard() {
   return (
     <>
       {products.map((product) => (
-        <div className="project-card" key={product.id}>
-          <img className="project-card-image" src={product.thumbnail} alt={product.title} />
-          <h2 className="project-card-title">{product.title}</h2>
-          <p className="project-card-text">{product.description}</p>
-          <p>{product.price}€</p>
-        </div>
+        <Link to={`/project/${product.id}`} key={product.id}>
+          <div className="project-card">
+            <img className="project-card-image" src={product.thumbnail} alt={product.title} />
+            <h2 className="project-card-title">{product.title}</h2>
+          </div>
+        </Link>
       ))}
     </>
   );
 }
 
-
-
-export default ProjectCard
+export default ProjectCard;
