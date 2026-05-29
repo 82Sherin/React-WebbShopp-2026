@@ -1,26 +1,17 @@
-import Header from "../Header";
-import Footer from "../Footer";
+import Header from "../views/Header";
+import Footer from "../views/Footer";
 import ProjectCard from "./ProjectCard";
 import SearchBar from "./SearchBar";
-import { useState } from "react";
 
-
-
-
-function Project(){
-    const [products, setProducts] = useState([])
- 
-
-    return(
-        <>
-            <Header/>
-            <SearchBar setProducts={setProducts}/>
-            <ProjectCard products={products} setProducts={setProducts}/>
-            <Footer/>
-        </>
-
-    );
-
+function Project() {
+  return (
+    <>
+      <Header />
+      <SearchBar />
+      <ProjectCard />
+      <Footer />
+    </>
+  );
 }
 
-export default Project
+export default Project;

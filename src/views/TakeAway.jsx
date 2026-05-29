@@ -1,20 +1,23 @@
-import Header from "../Header";
-import Footer from "../Footer";
+import Header from "./Header";
+import Footer from "./Footer";
 import Card from "../Card";
+import greekMenu from "../Data/greekMenu";
 
 
+function TakeAway() {
+  return (
+    <>
+      <Header />
 
-function TakeAway(){
+      <div className="menu-container">
+        {greekMenu.map((item) => (
+          <Card key={item.id} item={item} />
+        ))}
+      </div>
 
-    return(
-        <>
-            <Header/>
-            <Card/>
-            <Footer/>
-        </>
-
-    );
-
+      <Footer />
+    </>
+  );
 }
 
-export default TakeAway
+export default TakeAway;

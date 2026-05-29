@@ -1,56 +1,45 @@
-
 import "./ProjectCard.css";
-import { useEffect } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
-import SearchBar from "./SearchBar";
+import { ShopContext } from "../context/ShopContext";
+import { Heart } from "phosphor-react";
 
-const fetchProducts = async () => {
-  try {
-    const response = await fetch("https://dummyjson.com/products", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    if (!response.ok) {
-      throw new Error("not found!");
-    }
-    const products = await response.json();
-    return products;
-  } catch (error) {
-    console.error("something went wrong:", error);
-  }
-};
-
-function ProjectCard({products, setProducts}) {
-  useEffect(() => {
-    fetchProducts().then((data) => {
-      if (data) {
-        console.log(data.products);
-        setProducts(data.products);
-      }
-    });
-  }, []);
+function ProjectCard() {
+  const { products, addToCart, toggleWishlist, isInWishlist } = useContext(ShopContext);
 
   return (
-   
-    <>
-      {
-            products.length > 0 ?
-            products.map((product) => (
-        <Link to={`/project/${product.id}`} key={product.id}>
-          <div className="project-card">
-            <img className="project-card-image" src={product.thumbnail} alt={product.title} />
-            <h2 className="project-card-title">{product.title}</h2>
+    <div className="project-card-container">
+      {products.length > 0 ? (
+        products.map((product) => (
+          <div className="project-card" key={product.id}>
+            <button
+              className="wishlist-heart-btn"
+              onClick={() => toggleWishlist(product.id)}
+            >
+              <Heart
+                size={22}
+                weight={isInWishlist(product.id) ? "fill" : "regular"}
+                color={isInWishlist(product.id) ? "hsl(0, 80%, 50%)" : "hsl(0, 0%, 60%)"}
+              />
+            </button>
+            <Link to={`/project/${product.id}`}>
+              <img
+                className="project-card-image"
+                src={product.thumbnail}
+                alt={product.title}
+              />
+              <h2 className="project-card-title">{product.title}</h2>
+            </Link>
+            <p>${product.price}</p>
+            <button onClick={() => addToCart(product.id)} className="project-add-btn">
+              Add to Cart
+            </button>
           </div>
-        </Link>
-      ))
-      :
-      <p>No product found</p>
-    
-    }
- 
-    </>
+        ))
+      ) : (
+        <p>No product found</p>
+      )}
+    </div>
   );
 }
 

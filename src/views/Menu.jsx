@@ -1,11 +1,12 @@
 
 import "./Menu.css";
-import Header from "../Header.jsx";
-import Footer from "../Footer.jsx";
+import Header from "./Header.jsx";
+import Footer from "./Footer.jsx";
 import menuEnglish from "../assets/menuEnglish.jpg";
 import menuSpanish from "../assets/menuSpanish.jpg";
 import menuSwedish from "../assets/menuSwedish.jpg";
 import drinks from "../assets/drinks.jpg";
+
 
 const menuImages = [
   { id: 1, src: menuEnglish, alt: "Menu in English" },

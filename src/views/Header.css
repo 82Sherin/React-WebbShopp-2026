@@ -6,9 +6,10 @@ header {
     border-bottom: 1px solid hsl(0, 0%, 80%);
     box-shadow: 0px 2px 5px hsla(0, 0%, 0%, 0.1);
     display: flex;
-    flex-direction: column;  /* stacked on mobile */
+    flex-direction: column;
     align-items: center;
     gap: 15px;
+    
 }
 
 header img {
@@ -21,9 +22,10 @@ header nav ul {
     padding: 0;
     margin: 0;
     display: flex;
-    flex-wrap: wrap;        /* wraps links on small screens */
+    flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
+    
 }
 
 header nav ul li a {
@@ -36,14 +38,56 @@ header nav ul li a {
 }
 
 header nav ul li a:hover {
-    color: hsl(0, 0%, 20%);
+    color: rgb(102, 140, 243);
+}
+
+
+
+/* ---- CART ICON ---- */
+
+.cart-icon-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.cart-icon-wrapper a {
+    display: flex;
+    align-items: center;
+    color: hsl(241, 73%, 32%);
+    transition: color 0.2s ease;
+}
+
+.cart-icon-wrapper a:hover {
+    color: rgb(102, 140, 243);
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: hsl(0, 80%, 50%);
+    color: white;
+    border-radius: 50%;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 4px;
+    font-size: 11px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cart-icon-wrapper a svg[data-filled="true"]{
+    color: hsl(0, 80%, 50%)
 }
 
 /* ---- TABLET ---- */
 
 @media (min-width: 768px) {
     header {
-        flex-direction: row;    /* logo left, nav right */
+        flex-direction: row;
         justify-content: flex-start;
         padding: 20px;
         gap: 20px;

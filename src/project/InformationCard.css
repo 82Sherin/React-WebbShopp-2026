@@ -29,8 +29,87 @@
     margin-bottom: 10px;
 }
 
-.information-card p {
+.information-card .information-card-price {
     font-family: Arial, sans-serif;
     color: hsl(0, 0%, 20%);
     font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* ---- ADD/REMOVE CART ---- */
+
+.add-remove-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.counter {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.count-number {
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    color: hsl(0, 0%, 20%);
+    font-weight: bold;
+    margin: 0;
+    min-width: 20px;
+    text-align: center;
+}
+
+.add-button {
+    color: black;
+    border: none;
+    border-radius: 5px;
+    width: 20px;
+    height: 20px;
+    font-size: 1.rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.add-button:hover {
+    background-color: rgb(252, 253, 254);
+}
+
+.remove-button {
+    color: black;
+    border: none;
+    border-radius: 5px;
+    width: 20px;
+    height: 20px;
+    font-size: 1.rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.remove-button:hover {
+    background-color: rgb(252, 253, 254);
+}
+
+.cart-action-btn {
+    color: black;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 30px;
+    font-family: Arial, sans-serif;
+    font-size: 0.7rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.cart-action-btn:hover {
+    background-color: rgb(252, 253, 254);
+}
+
+
+
+.cart-action-btn.in-cart:hover {
+    background-color: rgb(252, 253, 254);
 }

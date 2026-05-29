@@ -1,0 +1,144 @@
+/* ---- MOBILE FIRST ---- */
+
+.wishlist-container {
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.wishlist-title {
+    font-family: Arial, sans-serif;
+    color: hsl(0, 0%, 20%);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.wishlist-empty {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: hsl(0, 0%, 20%);
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.wishlist-items {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.wishlist-card {
+    border: 1px solid hsl(0, 0%, 80%);
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px hsla(0, 0%, 0%, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    text-align: center;
+}
+
+.wishlist-card-image {
+    max-width: 120px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.wishlist-card-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.wishlist-card-title {
+    font-family: Arial, sans-serif;
+    color: hsl(0, 0%, 20%);
+    margin: 0;
+    font-size: 1rem;
+}
+
+.wishlist-card-price {
+    font-family: Arial, sans-serif;
+    color: black;
+    font-weight: bold;
+    margin: 0;
+}
+
+.wishlist-card-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.wishlist-add-btn {
+    color: black;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 20px;
+    font-family: Arial, sans-serif;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.wishlist-add-btn:hover {
+    background-color: rgb(252, 253, 254);
+}
+
+.wishlist-remove-btn {
+    color: black;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 20px;
+    font-family: Arial, sans-serif;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: background-color 0.2s ease;
+}
+
+.wishlist-remove-btn:hover {
+    background-color: rgb(252, 253, 254);
+}
+
+.wishlist-back-link {
+    font-family: Arial, sans-serif;
+    color: hsl(0, 0%, 20%);
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.wishlist-back-link:hover {
+    color: rgb(252, 253, 254);
+}
+
+/* ---- TABLET ---- */
+
+@media (min-width: 768px) {
+    .wishlist-card {
+        flex-direction: row;
+        text-align: left;
+    }
+
+    .wishlist-card-info {
+        align-items: flex-start;
+    }
+}
+
+/* ---- DESKTOP ---- */
+
+@media (min-width: 1024px) {
+    .wishlist-container {
+        padding: 40px;
+    }
+}

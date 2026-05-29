@@ -1,20 +1,25 @@
-import tzatziki from "./assets/tzatziki.jpg"
 import "./Card.css";
 
-function Card(){
+function Card({ item }) {
+  return (
+    <div className="card">
+      <img
+        className="card-image"
+        src={item.img}
+        alt={item.name}
+      />
 
-    return(
-         <div className="card">
-        <img className= "card-image" src={tzatziki} alt="Tzatziki" />
-        <h2 className= "card-title">Tzatziki</h2>
-        <p className= "card-text">A greek yhoghurt with cucumber & garlic</p>
-        <p>6€</p>
+      <h2 className="card-title">
+        {item.name}
+      </h2>
 
+      <p className="card-text">
+        {item.description}
+      </p>
+
+      <p>{item.price}€</p>
     </div>
-
-    );
-   
-
+  );
 }
 
-export default Card
+export default Card;

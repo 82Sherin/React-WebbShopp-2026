@@ -1,9 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import useDebounce from "./useDebounce";
+import { ShopContext } from "../context/ShopContext";
+import "./SearchBar.css";
 
-function SearchBar({ setProducts }) {
+function SearchBar() {
+    const { setProducts } = useContext(ShopContext);
     const [searchTerm, setSearchTerm] = useState("");
-
     const debouncedSearchTerm = useDebounce(searchTerm, 3000);
 
     useEffect(() => {
@@ -11,40 +13,38 @@ function SearchBar({ setProducts }) {
             const fetchSearchBar = async () => {
                 try {
                     const response = await fetch(
-                        `https://dummyjson.com/products/search?q=${debounceSearchTerm}`,
+                        `https://dummyjson.com/products/search?q=${debouncedSearchTerm}`,
                         {
                             method: "GET",
-                            headers: {
-                                "Content-Type": "application/json",
-                            },
+                            headers: { "Content-Type": "application/json" },
                         }
                     );
-                    if (!response.ok) {
-                        throw new Error("not found!");
-                    }
+                    if (!response.ok) throw new Error("Not found!");
                     const data = await response.json();
                     setProducts(data.products);
                 } catch (error) {
-                    console.error("something went wrong", error);
+                    console.error("Something went wrong:", error);
                 }
-            };                             
-
-            fetchSearchBar()
+            };
+            fetchSearchBar();
         }
     }, [debouncedSearchTerm]);
 
     return (
         <div>
-            <h2>Search Product</h2>
+            <h2 className="search-text">Search Product</h2>
             <input
                 type="text"
-                placeholder="Product"        
+                placeholder="Product"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
             />
         </div>
     );
 }
+
+
+
 
 /* Användaren skriver
        ↓
