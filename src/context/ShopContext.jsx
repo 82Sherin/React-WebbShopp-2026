@@ -1,8 +1,8 @@
 import { createContext, useState, useEffect } from "react";
 
-export const ShopContext = createContext(null); // Global shop- context, start with null to fill in later with product, cart, add/remove from cart
+export const ShopContext = createContext(null); // Global shop-context, start with null to fill in later with product, cart, add/remove from cart
 
-// function to fetch/get the product from API
+// Function to fetch/get the product from API
 const fetchProducts = async () => {
   try {
     const response = await fetch("https://dummyjson.com/products", {
@@ -14,70 +14,112 @@ const fetchProducts = async () => {
     return data.products;
   } catch (error) {
     console.error("Something went wrong:", error);
-    return []; //Empty array so the system do not crashes
+    return []; // Empty array so the system does not crash
   }
 };
 
-// This component encloses <App/> all the children get access to the context
+// Helper to safely read from localStorage
+const loadFromStorage = (key, fallback) => {
+  try {
+    const saved = localStorage.getItem(key);
+    return saved ? JSON.parse(saved) : fallback; // If nothing saved, return fallback value
+  } catch (error) {
+    console.error(`Failed to load "${key}" from localStorage:`, error);
+    return fallback; // If localStorage crashes, return fallback so app doesn't crash
+  }
+};
+
+// Helper to safely write to localStorage
+const saveToStorage = (key, value) => {
+  try {
+    localStorage.setItem(key, JSON.stringify(value));
+  } catch (error) {
+    console.error(`Failed to save "${key}" to localStorage:`, error); // Log error but don't crash the app
+  }
+};
+
+// This component encloses <App/> so all children get access to the context
 export const ShopContextProvider = (props) => {
   const [products, setProducts] = useState([]);
-  const [cartItems, setCartItems] = useState({}); // state for the cart to store the items in an object
-  const [wishlistItems, setWishlistItems] = useState([]);
+
+  // Load cart from localStorage on first render, fallback to empty object
+  const [cartItems, setCartItems] = useState(() =>
+    loadFromStorage("cartItems", {})
+  );
+
+  // Load wishlist from localStorage on first render, fallback to empty array
+  const [wishlistItems, setWishlistItems] = useState(() =>
+    loadFromStorage("wishlistItems", [])
+  );
 
   // Fetch products once on mount and build the initial empty cart
   useEffect(() => {
-    fetchProducts().then((data) => { // fetch the product and then the product array
-      if (data.length > 0) { // contole if the product exist so the array isn't empty
-        setProducts(data); // save the products in state
+    fetchProducts().then((data) => { // Fetch the products and then the product array
+      if (data.length > 0) { // Check if the product exist so the array isn't empty
+        setProducts(data); // Save the products in state
 
-        // Build cart keyed by product id, all starting at 0
-        const defaultCart = {};
-        data.forEach((product) => {
-          defaultCart[product.id] = 0;
+        // Only build default cart if localStorage was empty, so we never overwrite a saved cart
+        setCartItems((prev) => {
+          if (Object.keys(prev).length === 0) {
+            const defaultCart = {};
+            data.forEach((product) => {
+              defaultCart[product.id] = 0; // Build cart keyed by product id, all starting at 0
+            });
+            return defaultCart;
+          }
+          return prev; // If cart already has items from localStorage, keep them
         });
-        setCartItems(defaultCart); // save in the cart
       }
     });
-  }, []); // useEffect render just ones when the component mounts
+  }, []); // useEffect renders just once when the component mounts
+
+  // Save cart to localStorage whenever it changes
+  useEffect(() => {
+    saveToStorage("cartItems", cartItems);
+  }, [cartItems]);
+
+  // Save wishlist to localStorage whenever it changes
+  useEffect(() => {
+    saveToStorage("wishlistItems", wishlistItems);
+  }, [wishlistItems]);
 
   const addToCart = (itemId) => {
-    setCartItems((prev) => ({ ...prev, [itemId]: (prev[itemId] || 0) + 1 })); // I use prev to aboid race condition ...prev: spread operator copies old value
+    setCartItems((prev) => ({ ...prev, [itemId]: (prev[itemId] || 0) + 1 })); // I use prev to avoid race condition, ...prev: spread operator copies old value
   };
 
   const removeFromCart = (itemId) => {
     setCartItems((prev) => ({
       ...prev,
-      [itemId]: Math.max((prev[itemId] || 0) - 1, 0), // prevents going below 0
+      [itemId]: Math.max((prev[itemId] || 0) - 1, 0), // Prevents going below 0
     }));
   };
 
-  const getTotalCartAmount = () => { // count total amount
-    return Object.entries(cartItems).reduce((total, [id, qty]) => { // object.entries(cartItems) convert obejct to an array, reduce summery everything
-      if (qty === 0) return total; // jump over empty products
-      const product = products.find((p) => p.id === Number(id)); // find product by id, matching right product-id from the cart with the right product, Numeber(id) needed bcs object key is a "string"
-      return product ? total + product.price * qty : total; // the total price * quantity
+  const getTotalCartAmount = () => { // Count total amount
+    return Object.entries(cartItems).reduce((total, [id, qty]) => { // Object.entries(cartItems) converts object to an array, reduce summarizes everything
+      if (qty === 0) return total; // Jump over empty products
+      const product = products.find((p) => p.id === Number(id)); // Find product by id, matching right product-id from the cart with the right product, Number(id) needed because object key is a "string"
+      return product ? total + product.price * qty : total; // The total price * quantity
     }, 0);
   };
 
-  const getTotalCartItems = () => { // count amount of products
-    return Object.values(cartItems).reduce((total, qty) => total + qty, 0); // summarize quantities
+  const getTotalCartItems = () => { // Count amount of products
+    return Object.values(cartItems).reduce((total, qty) => total + qty, 0); // Summarize quantities
   };
 
   const toggleWishlist = (productId) => {
-    setWishlistItems((prev) => 
-     prev.includes(productId)
-      ? prev.filter((id) => id !== productId)
-      : [...prev, productId]
-   );
+    setWishlistItems((prev) =>
+      prev.includes(productId)
+        ? prev.filter((id) => id !== productId) // If already in wishlist, remove it
+        : [...prev, productId] // If not in wishlist, add it
+    );
   };
 
   const isInWishlist = (productId) => wishlistItems.includes(productId);
 
-
-  // Collect every part that shares global
+  // Collect every part that shares globally
   const contextValue = {
     products,
-    setProducts,      // so SearchBar can still filter
+    setProducts,      // So SearchBar can still filter
     cartItems,
     addToCart,
     removeFromCart,
@@ -94,4 +136,3 @@ export const ShopContextProvider = (props) => {
     </ShopContext.Provider>
   );
 };
-
