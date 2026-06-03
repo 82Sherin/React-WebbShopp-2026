@@ -8,6 +8,7 @@ import InformationCard from "./project/InformationCard.jsx";
 import { ShopContextProvider } from "./context/ShopContextProvider.jsx";
 import Cart from "./Cart/Cart.jsx";
 import Wishlist from "./project/Wishlist.jsx";
+import { Form } from "./Form.jsx";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/menu" element={<Menu />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/wishlist" element={<Wishlist />} />
+          <Route path="/checkout" element={<Form />} />
         </Routes>
       </ShopContextProvider>
     </BrowserRouter>

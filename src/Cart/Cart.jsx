@@ -51,7 +51,7 @@ function Cart() {
               <p className="cart-total">
                 Total: <span>${getTotalCartAmount().toFixed(2)}</span>
               </p>
-              <button className="cart-checkout-btn">Checkout</button>
+              <Link to="/checkout" className="cart-checkout-btn">Checkout</Link>
               <Link to="/project" className="cart-back-link">
                 Continue Shopping
               </Link>
