@@ -29,7 +29,7 @@ export const Form = () => {
     <>
       <Header />
       <div className="form-container">
-        <h1>Checkout</h1>
+        <h1 className="form-title">Checkout</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
           <input type="text" placeholder="First Name..." {...register("firstName")} />
           <p className="form-error">{errors.firstName?.message}</p>

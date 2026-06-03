@@ -1,26 +1,4 @@
-import vegetarianPlateImg from "../assets/vegetarianPlate.jpg";
-import tzatzikiImg from "../assets/tzatziki.jpg";
-import greekSaladImg from "../assets/greekSalad.jpg";
-import dolmadesImg from "../assets/dolmades.jpg";
-import pitaBreadImg from "../assets/pitaBread.jpg";
-import hummusImg from "../assets/hummus.jpg";
-import htipitiImg from "../assets/htipiti.jpg";
-import falafelImg from "../assets/falafel.jpg";
-import halloumiImg from "../assets/halloumi.jpg";
-import saganakiImg from "../assets/saganaki.jpg";
-import calamariImg from "../assets/calamari.jpg";
-import prawnsImg from "../assets/prawns.jpg";
-import frenchFriesImg from "../assets/frenchFries.jpg";
-import souvlakiSkewerImg from "../assets/souvlakiSkewer.jpg";
-import porkFilletSouvlakiImg from "../assets/porkFilletSouvlaki.png";
-import chickenFilletSouvlakiImg from "../assets/chickenFilletSouvlaki.jpg";
-import beefMinceSouvlakiImg from "../assets/beefMinceSouvlaki.jpg";
-import spicyBeefMinceSouvlakiImg from "../assets/spicyBeefMinceSouvlaki.jpg";
-import mixedSouvlakiImg from "../assets/mixedSouvlaki.jpg";
-import porkGyrosImg from "../assets/porkGyros.jpg";
-import gyrosWrapImg from "../assets/gyrosWrap.jpg";
-import moussakaImg from "../assets/moussaka.jpg";
-import baklavaImg from "../assets/baklava.jpg";
+
 
 const greekMenu = [
   {
@@ -28,112 +6,112 @@ const greekMenu = [
     name: "Greek Salad",
     description: "Fresh salad with feta cheese, olives, cucumber, tomato, and onion.",
     price: 12,
-    img: greekSaladImg,
+    img: "https://res.cloudinary.com/dw4ga3iot/image/upload/v1780504220/greekSalad_ac5s6g.png",
   },
   {
     id: 2,
     name: "Dolmades",
     description: "Stuffed vine leaves with traditional Greek seasoning.",
     price: 8,
-    img: dolmadesImg,
+    img: "https://res.cloudinary.com/dw4ga3iot/image/upload/v1780504189/dolmades_ugryhc.png",
   },
   {
     id: 3,
     name: "Pita Bread",
     description: "Soft traditional Greek pita bread.",
     price: 5,
-    img: pitaBreadImg,
+    img: "https://res.cloudinary.com/dw4ga3iot/image/upload/v1780504329/pitaBread_upik4e.png",
   },
   {
     id: 4,
     name: "Tzatziki",
     description: "Greek yogurt dip with cucumber, garlic, and herbs.",
     price: 6,
-    img: tzatzikiImg,
+    img: "https://res.cloudinary.com/dw4ga3iot/image/upload/v1780504510/tzatziki_jtu5lo.png",
   },
   {
     id: 5,
     name: "Hummus",
     description: "Creamy chickpea dip with olive oil and tahini.",
     price: 6,
-    img: hummusImg,
+    img: "https://res.cloudinary.com/dw4ga3iot/image/upload/v1780504299/hummus_p65ovj.png",
   },
   {
     id: 6,
     name: "Htipiti",
     description: "Spicy feta cheese spread.",
     price: 7,
-    img: htipitiImg,
+    img: "https://res.cloudinary.com/dw4ga3iot/image/upload/v1780504252/htipiti_l0wqip.png",
   },
   {
     id: 7,
     name: "Falafel",
     description: "Crispy fried chickpea balls with herbs and spices.",
     price: 8,
-    img: falafelImg,
+    img: "https://res.cloudinary.com/dw4ga3iot/image/upload/v1780504199/falafel_kxs9yn.png",
   },
   {
     id: 8,
     name: "Halloumi",
     description: "Grilled halloumi cheese.",
     price: 9,
-    img: halloumiImg,
+    img: "https://res.cloudinary.com/dw4ga3iot/image/upload/v1780504241/halloumi_pvbupt.png",
   },
   {
     id: 9,
     name: "Saganaki",
     description: "Traditional fried Greek cheese.",
     price: 9,
-    img: saganakiImg,
+    img: "https://res.cloudinary.com/dw4ga3iot/image/upload/v1780504471/saganaki_twktcw.png",
   },
   {
     id: 10,
     name: "Calamari",
     description: "Fried calamari served with lemon.",
     price: 9,
-    img: calamariImg,
+    img: "https://res.cloudinary.com/dw4ga3iot/image/upload/v1780504471/saganaki_twktcw.png",
   },
   {
     id: 11,
     name: "Prawns",
     description: "Scampi-style prawns with Greek flavors.",
     price: 10,
-    img: prawnsImg,
+    img: "https://res.cloudinary.com/dw4ga3iot/image/upload/v1780504461/prawns_tuevjd.png",
   },
   {
     id: 12,
     name: "French Fries",
     description: "Crispy golden fries.",
     price: 5,
-    img: frenchFriesImg,
+    img: "https://res.cloudinary.com/dw4ga3iot/image/upload/v1780504211/frenchFries_xynzck.png",
   },
   {
     id: 13,
     name: "Souvlaki Skewer",
     description: "Traditional grilled souvlaki skewer.",
     price: 4,
-    img: souvlakiSkewerImg,
+    img: "https://res.cloudinary.com/dw4ga3iot/image/upload/v1780504482/souvlakiSkewer_elqgw6.png",
   },
   {
     id: 14,
     name: "Vegetarian Plate",
     description: "Vegetarian souvlaki plate with salad, tzatziki, and choice of side.",
     price: 16,
-    img: vegetarianPlateImg,
+    img: "https://res.cloudinary.com/dw4ga3iot/image/upload/v1780504518/vegetarian-plate_qxe0jh.png",
   },
   {
     id: 15,
     name: "Pork Fillet Souvlaki",
     description: "Grilled pork fillet skewers with traditional sides.",
     price: 17,
-    img: porkFilletSouvlakiImg,
+    img: "https://res.cloudinary.com/dw4ga3iot/image/upload/v1780504435/porkFilletSouvlaki_diziu2.png",
   },
   {
     id: 16,
     name: "Chicken Fillet Souvlaki",
     description: "Grilled chicken fillet skewers with salad and tzatziki.",
     price: 17,
-    img: chickenFilletSouvlakiImg,
+    img: "https://res.cloudinary.com/dw4ga3iot/image/upload/v1780504435/porkFilletSouvlaki_diziu2.png",
   },
   {
     id: 17,
@@ -147,63 +125,63 @@ const greekMenu = [
     name: "Spicy Beef Mince Souvlaki",
     description: "Spicy grilled beef mince skewers with tzatziki and salad.",
     price: 18,
-    img: spicyBeefMinceSouvlakiImg,
+    img: "https://res.cloudinary.com/dw4ga3iot/image/upload/v1780504435/porkFilletSouvlaki_diziu2.png",
   },
   {
     id: 19,
     name: "Mixed Souvlaki",
     description: "Combination of different grilled souvlaki meats.",
     price: 20,
-    img: mixedSouvlakiImg,
+    img: "https://res.cloudinary.com/dw4ga3iot/image/upload/v1780504435/porkFilletSouvlaki_diziu2.png",
   },
   {
     id: 20,
     name: "Chicken Gyros",
     description: "Chicken gyros served with salad, tzatziki, and choice of side.",
     price: 16,
-    img: null,
+    img: "https://res.cloudinary.com/dw4ga3iot/image/upload/v1780511274/ChickenGyros_jdboq9.png",
   },
   {
     id: 21,
     name: "Pork Gyros",
     description: "Traditional pork gyros with Greek sides.",
     price: 16,
-    img: porkGyrosImg,
+    img: "https://res.cloudinary.com/dw4ga3iot/image/upload/v1780504446/porkGyros_twt0ia.png",
   },
   {
     id: 22,
     name: "Gyros Wrap",
     description: "Greek wrap filled with gyros meat, vegetables, and sauce.",
     price: 15,
-    img: gyrosWrapImg,
+    img: "https://res.cloudinary.com/dw4ga3iot/image/upload/v1780504446/porkGyros_twt0ia.png",
   },
   {
     id: 23,
     name: "Gyros Salad",
     description: "Fresh salad topped with seasoned gyros meat.",
     price: 15,
-    img: null,
+    img: "https://res.cloudinary.com/dw4ga3iot/image/upload/v1780510786/GyrosSalad_f86cgs.png",
   },
   {
     id: 24,
     name: "Moussaka",
     description: "Classic Greek baked casserole with eggplant, meat, and béchamel sauce.",
     price: 17,
-    img: moussakaImg,
+    img: "https://res.cloudinary.com/dw4ga3iot/image/upload/v1780504446/porkGyros_twt0ia.png",
   },
   {
     id: 25,
     name: "Kids Gyros",
     description: "Kid-sized gyros meal with fries or rice.",
     price: 9,
-    img: null,
+    img: "https://res.cloudinary.com/dw4ga3iot/image/upload/v1780510368/kidsGyros_xbyz0q.png",
   },
   {
     id: 26,
     name: "Kids Souvlaki",
     description: "Kid-sized souvlaki skewer meal with choice of side.",
     price: 9,
-    img: null,
+    img: "https://res.cloudinary.com/dw4ga3iot/image/upload/v1780504482/souvlakiSkewer_elqgw6.png",
   },
   {
     id: 27,
@@ -217,14 +195,14 @@ const greekMenu = [
     name: "Exotic Sorbet",
     description: "Refreshing exotic fruit sorbet.",
     price: 6,
-    img: null,
+    img: "https://res.cloudinary.com/dw4ga3iot/image/upload/v1780510123/exoticSorbet_yb8xwf.png",
   },
   {
     id: 29,
     name: "Vanilla Ice Cream with Strawberries",
     description: "Vanilla ice cream served with fresh strawberries.",
     price: 6,
-    img: null,
+    img: "https://res.cloudinary.com/dw4ga3iot/image/upload/v1780509943/Vanilla_Ice_Cream_with_Strawberries_h2n7go.png",
   },
 ];
 

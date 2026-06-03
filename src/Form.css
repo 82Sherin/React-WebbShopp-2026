@@ -1,9 +1,19 @@
 /* ---- MOBILE FIRST ---- */
 
 .form-container {
-    padding: 20px;
-    max-width: 600px;
+    display: flex;
+   padding: 20px;
+    max-width: 900px;
     margin: 0 auto;
+    border: 1px solid hsl(0, 0%, 80%);
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px hsla(0, 0%, 0%, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+    
 }
 
 .form-title {
@@ -13,21 +23,11 @@
     margin-bottom: 20px;
 }
 
-/* ---- FORM CARD ---- */
 
-.form-card {
-    border: 1px solid hsl(0, 0%, 80%);
-    border-radius: 10px;
-    box-shadow: 5px 5px 5px hsla(0, 0%, 0%, 0.1);
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
 
 /* ---- INPUTS ---- */
 
-.form-card input {
+input {
     font-family: Arial, sans-serif;
     font-size: 0.9rem;
     color: hsl(0, 0%, 20%);
@@ -39,7 +39,7 @@
     transition: border-color 0.2s ease;
 }
 
-.form-card input:focus {
+input:focus {
     outline: none;
     border-color: hsl(241, 73%, 32%);
 }
