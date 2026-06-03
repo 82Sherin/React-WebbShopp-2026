@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import useDebounce from "./useDebounce";
+import useDebounce from "../Hooks/useDebounce";
 import { ShopContext } from "../context/ShopContext";
 import "./SearchBar.css";
 

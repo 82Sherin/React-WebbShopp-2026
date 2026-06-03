@@ -1,6 +1,7 @@
-import { createContext, useState, useEffect } from "react";
+import {  useState, useEffect } from "react";
+import { ShopContext } from "./ShopContext";
 
-export const ShopContext = createContext(null); // Global shop-context, start with null to fill in later with product, cart, add/remove from cart
+
 
 // Function to fetch/get the product from API
 const fetchProducts = async () => {

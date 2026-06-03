@@ -5,7 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import TakeAway from "./views/TakeAway.jsx";
 import Menu from "./views/Menu.jsx";
 import InformationCard from "./project/InformationCard.jsx";
-import { ShopContextProvider } from "./context/ShopContext.jsx";
+import { ShopContextProvider } from "./context/ShopContextProvider.jsx";
 import Cart from "./Cart/Cart.jsx";
 import Wishlist from "./project/Wishlist.jsx";
 

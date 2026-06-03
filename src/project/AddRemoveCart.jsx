@@ -1,14 +1,13 @@
-import {useContext} from "react";
-import {ShopContext} from "../context/ShopContext";
+import {useCart} from "../Hooks/useCart";
 import "./InformationCard.css"; 
 
 
 
 
 function AddRemoveCart({productId}) {
-    const {cartItems, addToCart, removeFromCart} = useContext(ShopContext);
+    const {count, addToCart, removeFromCart} = useCart(productId);
 
-    const count = cartItems[productId] || 0;
+
     
 
     return (
