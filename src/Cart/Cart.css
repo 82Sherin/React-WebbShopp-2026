@@ -123,7 +123,9 @@
 }
 
 .cart-total span {
+    padding-top: 10%;
     color: hsl(0, 0%, 20%);
+    font-size: 1.2rem;
     font-weight: bold;
 }
 

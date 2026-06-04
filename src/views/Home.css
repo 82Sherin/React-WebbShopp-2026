@@ -1,20 +1,43 @@
 /* ---- MOBILE FIRST ---- */
 
-.map-container {
+.loggo-container {
+    display: flex;
     padding: 10px;
-    width: 100%;
+    width: 50%;
     max-width: 100%;
     margin: 0 auto;
 }
 
-.map-container iframe {
-    height: 300px;  /* smaller on mobile */
+.loggo-container img {
+    height: 150px;
     border-radius: 8px;
+}
+
+span {
+    display: flex;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    text-decoration: none;
+    color: hsl(241, 73%, 32%);
+    font-weight: bold;
+    font-size: 4rem;
+    transition: color 0.2s ease;
+}
+
+.map-container {
+    padding: 10px;
+    width: 50%;
+    max-width: 100%;
+    margin: 0 auto;
 }
 
 /* ---- TABLET ---- */
 
 @media (min-width: 768px) {
+    .loggo-container img {
+        height: 200px;
+    }
+
     .map-container {
         padding: 15px;
         max-width: 700px;
@@ -28,6 +51,10 @@
 /* ---- DESKTOP ---- */
 
 @media (min-width: 1024px) {
+    .loggo-container img {
+        height: 250px;
+    }
+
     .map-container {
         padding: 20px;
         max-width: 800px;

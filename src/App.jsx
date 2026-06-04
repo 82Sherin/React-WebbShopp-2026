@@ -8,7 +8,7 @@ import InformationCard from "./project/InformationCard.jsx";
 import { ShopContextProvider } from "./context/ShopContextProvider.jsx";
 import Cart from "./Cart/Cart.jsx";
 import Wishlist from "./project/Wishlist.jsx";
-import { Form } from "./Form.jsx";
+import { Form } from "./Components/Form.jsx";
 
 function App() {
   return (

@@ -1,8 +1,8 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import Header from "./views/Header";
-import Footer from "./views/Footer";
+import Header from "../views/Header";
+import Footer from "../views/Footer";
 import "./Form.css";
 
 const schema = yup.object().shape({ // lowercase object(), not Object()
