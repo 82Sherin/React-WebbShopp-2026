@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom"; // hämtar parametrar från URL:en
 import "./InformationCard.css";
 import Header from "../views/Header";
 import Footer from "../views/Footer";
-import AddRemoveCart from "./AddRemoveCart";
+import AddRemoveCart from "../Cart/AddRemoveCart";
 
 
 

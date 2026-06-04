@@ -1,5 +1,5 @@
 import {useCart} from "../Hooks/useCart";
-import "./InformationCard.css"; 
+import "../project/InformationCard.css"; 
 
 
 
