@@ -1,7 +1,7 @@
 import Header from "./Header";
 import Footer from "./Footer";
 import Card from "../Components/Card";
-import greekMenu from "../Data/greekMenu";
+import greekMenu from "../Data/GreekMenu";
 
 
 function TakeAway() {
