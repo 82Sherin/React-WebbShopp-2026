@@ -57,8 +57,8 @@ input:focus {
 /* ---- SUBMIT BUTTON ---- */
 
 .form-card input[type="submit"] {
-    background-color: hsl(241, 73%, 32%);
-    color: white;
+    
+    color:hsl(0, 0%, 20%);
     border: none;
     border-radius: 10px;
     padding: 12px 40px;
@@ -70,15 +70,16 @@ input:focus {
     margin-top: 10px;
 }
 
+
 .form-card input[type="submit"]:hover {
-    background-color: hsl(0, 0%, 20%);
+    background-color: rgb(252, 253, 254);
 }
 
 /* ---- BACK LINK ---- */
 
 .form-back-link {
     font-family: Arial, sans-serif;
-    color: hsl(241, 73%, 32%);
+    color:hsl(0, 0%, 20%);
     font-weight: bold;
     text-decoration: none;
     font-size: 0.9rem;
@@ -88,8 +89,88 @@ input:focus {
     margin-top: 15px;
 }
 
+
 .form-back-link:hover {
-    color: rgb(102, 140, 243);
+    background-color: rgb(252, 253, 254);
+}
+/* ---- MODAL OVERLAY ---- */
+
+.modal-overlay {
+    position: fixed; /* stays on screen even when scrolling */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: hsla(0, 0%, 0%, 0.5); /* dark transparent background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+/* ---- MODAL BOX ---- */
+
+.modal {
+    background-color: white;
+    border: 1px solid hsl(0, 0%, 80%);
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px hsla(0, 0%, 0%, 0.1);
+    padding: 40px;
+    max-width: 400px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    text-align: center;
+}
+
+.modal-title {
+    font-family: Arial, sans-serif;
+    color: hsl(0, 0%, 20%);
+    font-size: 1.3rem;
+    margin: 0;
+}
+
+.modal-name {
+    font-family: Arial, sans-serif;
+    color:hsl(0, 0%, 20%);
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.modal-total {
+    font-family: Arial, sans-serif;
+    color: hsl(0, 0%, 20%);
+    font-size: 1rem;
+    margin: 0;
+}
+
+.modal-total span {
+    color:hsl(0, 0%, 20%);
+    font-weight: bold;
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+.modal-btn {
+    background-color: hsl(150, 4%, 90%);
+    color: hsl(0, 0%, 20%);
+    border: none;
+    border-radius: 10px;
+    padding: 12px 40px;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+    margin-top: 10px;
+}
+
+.modal-btn:hover {
+    background-color: rgb(252, 253, 254);
 }
 
 /* ---- TABLET ---- */

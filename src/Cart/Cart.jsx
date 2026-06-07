@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { ShopContext } from "../context/ShopContext";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Header from "../views/Header";
 import Footer from "../views/Footer";
 import "./Cart.css";
@@ -10,6 +11,8 @@ function Cart() {
     useContext(ShopContext);
 
   const cartProducts = products.filter((product) => cartItems[product.id] > 0);
+
+  const navigate = useNavigate();
 
   return (
     <>
@@ -51,10 +54,8 @@ function Cart() {
               <p className="cart-total">
                 Total: <span>${getTotalCartAmount().toFixed(2)}</span>
               </p>
-              <Link to="/checkout" className="cart-checkout-btn">Checkout</Link>
-              <Link to="/project" className="cart-back-link">
-                Continue Shopping
-              </Link>
+              <button className="cart-checkout-btn" onClick={() => navigate("/checkout")}>Checkout</button>
+              <button className="cart-back-link" onClick={() => navigate("/project")}>Continue shopping</button>
             </div>
           </>
         )}

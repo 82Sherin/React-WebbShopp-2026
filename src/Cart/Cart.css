@@ -130,7 +130,7 @@
 }
 
 .cart-checkout-btn {
-    color: black;
+    color:hsl(0, 0%, 20%);
     border: none;
     border-radius: 10px;
     padding: 12px 40px;
@@ -148,16 +148,21 @@
 }
 
 .cart-back-link {
+   color:hsl(0, 0%, 20%);
+    border: none;
+    border-radius: 10px;
+    padding: 12px 40px;
     font-family: Arial, sans-serif;
-    color: hsl(241, 73%, 32%);
+    font-size: 1rem;
     font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
     text-decoration: none;
-    font-size: 0.9rem;
-    transition: color 0.2s ease;
+    display: inline-block;
 }
 
 .cart-back-link:hover {
-    color: rgb(102, 140, 243);
+    background-color: rgb(252, 253, 254);
 }
 
 /* ---- TABLET ---- */
