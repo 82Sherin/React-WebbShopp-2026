@@ -1,8 +1,8 @@
 import "./ProjectCard.css";
 import { Link } from "react-router-dom";
 import { Heart } from "phosphor-react";
-import { useCart } from "../hooks/useCart";
-import { useWishlist } from "../hooks/useWishlist";
+import { useCart } from "../Hooks/useCart";
+import { useWishlist } from "../Hooks/useWishlist";
 import { useContext } from "react";
 import { ShopContext } from "../context/ShopContext";
 

@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import Header from "../views/Header";
 import Footer from "../views/Footer";
 import { Heart } from "phosphor-react";
-import { useCart } from "../hooks/useCart";
-import { useWishlist } from "../hooks/useWishlist";
+import { useCart } from "../Hooks/useCart";
+import { useWishlist } from "../Hooks/useWishlist";
 import "./Wishlist.css";
 
 function Wishlist() {
