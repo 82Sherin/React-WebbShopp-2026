@@ -1,5 +1,7 @@
 # Taste Of Greek – React WebShop 2026
 
+🌐 **Live Demo:** [https://react-webb-shopp-2026.vercel.app](https://react-webb-shopp-2026.vercel.app)
+
 A full-stack inspired React web application for Taste Of Greek Restaurant & Bar.
 Built with React, React Router, Context API, and React Hook Form.
 
@@ -36,6 +38,10 @@ Make sure you have **Node.js** installed on your machine.
 
 
 http://localhost:5173
+
+
+
+---
 
 
 ---
