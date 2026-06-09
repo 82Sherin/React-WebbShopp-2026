@@ -1,55 +1,94 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom"; // hämtar parametrar från URL:en
+import { useParams } from "react-router-dom"; // Get parameters from the URL
 import "./InformationCard.css";
 import Header from "../views/Header";
 import Footer from "../views/Footer";
 import AddRemoveCart from "../Cart/AddRemoveCart";
 
-
-
 function InformationCard() {
-  const { id } = useParams(); // hämtar produkt-ID från URL:en
-  const [product, setProduct] = useState(null); //Skapa en state-variabel som heter product, ge den startvärdet null, och ge mig en funktion setProduct som kan ändra värdet senare.
 
+  // Get product ID from the URL
+  const { id } = useParams();
+
+  // Create state for storing product data
+  // Initial value is null until data is fetched
+  const [product, setProduct] = useState(null);
+
+  // Runs when component loads or when id changes
   useEffect(() => {
+
+    // Fetch product data from the API using product ID
     fetch(`https://dummyjson.com/products/${id}`)
+
+      // Convert response to JSON
       .then((res) => res.json())
+
+      // Save fetched product data in state
       .then((data) => {
         console.log(data);
         setProduct(data);
       });
-  }, [id]);
 
+  }, [id]); // Dependency array: rerun effect if id changes
+
+
+  // Show loading message while data is being fetched
   if (!product) return <p>Loading...</p>;
 
   return (
     <>
-    <Header/>
-    <div className="information-card">
-      <img className="information-card-image" src={product.thumbnail} alt={product.title} />
-      <h2 className="information-card-title">{product.title}</h2>
-      <p className="information-card-text">{product.description}</p>
-      <p>{product.price}€</p>
-       <AddRemoveCart productId={product.id}/>
-    </div>
-    
-    
-    <Footer/>
+      {/* Render page header */}
+      <Header />
+
+      <div className="information-card">
+
+        {/* Product image */}
+        <img
+          className="information-card-image"
+          src={product.thumbnail}
+          alt={product.title}
+        />
+
+        {/* Product title */}
+        <h2 className="information-card-title">
+          {product.title}
+        </h2>
+
+        {/* Product description */}
+        <p className="information-card-text">
+          {product.description}
+        </p>
+
+        {/* Product price */}
+        <p>{product.price}€</p>
+
+        {/* Add/remove product from cart */}
+        <AddRemoveCart productId={product.id} />
+      </div>
+
+      {/* Render page footer */}
+      <Footer />
     </>
   );
 }
-// 1. Komponenten laddas
-//          ↓
-//2. Hämtar id från URL
-//          ↓
-//3. fetch() anropar API
-//          ↓
-//4. API skickar produktdata
-//          ↓
-//5. setProduct(data)
-//          ↓
-//6. React renderar om komponenten
-//          ↓
-//7. Bild, titel, beskrivning och pris visas
+
+
+/*
+Application flow:
+
+1. The component renders
+         ↓
+2. Product ID is retrieved from the URL
+         ↓
+3. fetch() sends a request to the API
+         ↓
+4. The API returns product data
+         ↓
+5. setProduct(data) updates the state
+         ↓
+6. React re-renders the component
+         ↓
+7. Product image, title, description, and price are displayed
+*/
 
 export default InformationCard;

@@ -6,7 +6,7 @@ import "./SearchBar.css";
 function SearchBar() {
     const { setProducts } = useContext(ShopContext);
     const [searchTerm, setSearchTerm] = useState("");
-    const debouncedSearchTerm = useDebounce(searchTerm, 3000);
+    const debouncedSearchTerm = useDebounce(searchTerm, 3000); // I use my debounce custom hook that I create to reuse logic, so it's easy if I want to change ex time interval, debouncedSearchTerm only updates after the user stops typing for 3 seconds. 
 
     useEffect(() => {
         if (debouncedSearchTerm) {
@@ -21,14 +21,14 @@ function SearchBar() {
                     );
                     if (!response.ok) throw new Error("Not found!");
                     const data = await response.json();
-                    setProducts(data.products);
+                    setProducts(data.products); // Here I save the products in context with the argument data.products sends in like a argument to setProducts
                 } catch (error) {
                     console.error("Something went wrong:", error);
                 }
             };
             fetchSearchBar();
         }
-    }, [debouncedSearchTerm]);
+    }, [debouncedSearchTerm]); //The dependency array makes sure that the useEffect hook only runs when debouncedSearchTerm changes.
 
     return (
         <div>

@@ -15,7 +15,7 @@ const fetchProducts = async () => {
     return data.products;
   } catch (error) {
     console.error("Something went wrong:", error);
-    return []; // Empty array so the system does not crash
+    return []; // If the API request fails, the function returns an empty array as a fallback value to prevent the application from crashing.
   }
 };
 

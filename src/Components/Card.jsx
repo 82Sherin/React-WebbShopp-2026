@@ -1,5 +1,7 @@
 import "./Card.css";
 
+//item is a prop passed into the Card component. It contains the product data, such as the image, name, description, and price
+
 function Card({ item }) {
   return (
     <div className="card">
